@@ -1,0 +1,11 @@
+{
+  "id": "kamp",
+  "name": "Kamp",
+  "repo": "its-ash/kamp",
+  "package": "com.itsash.kamp",
+  "tagline": "Vibration meter and seismograph for washing machines, fans, engines and floors.",
+  "description": "Kamp turns your phone into a vibration meter. Rest it on a washing machine, fan, car engine, floor or bridge and watch a live seismograph of the shaking, with the current, peak and RMS acceleration, the dominant frequency and a simple intensity label from calm to severe. Record a session, save it, open the trace later and share it as CSV. Everything runs on your phone, with no ads and no tracking.",
+  "category": "Tools",
+  "icon": "assets/icon/logo-1024.png",
+  "homepage": "https://kamp.itsash.in/"
+}
