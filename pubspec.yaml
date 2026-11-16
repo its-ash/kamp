@@ -1,7 +1,7 @@
 name: kamp
 description: "Kamp: a vibration meter and seismograph using the phone's accelerometer."
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ^3.12.2
