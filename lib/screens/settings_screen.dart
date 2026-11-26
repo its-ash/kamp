@@ -22,6 +22,7 @@ class SettingsScreen extends StatelessWidget {
                 subtitle: 'Kamp shows only the shaking, in m/s², from the linear acceleration '
                     'sensor or a high-pass filter.',
                 icon: Icons.vibration_rounded,
+                maxSubtitleLines: 4,
               ),
               UiListTile(
                 'Indicative, not calibrated',
@@ -41,6 +42,7 @@ class SettingsScreen extends StatelessWidget {
                     'Kamp uses the internet only to check for app updates.',
                 icon: Icons.lock_rounded,
                 iconStatus: UiStatus.success,
+                maxSubtitleLines: 4,
               ),
             ],
           ),

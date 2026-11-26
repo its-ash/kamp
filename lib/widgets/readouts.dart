@@ -77,22 +77,26 @@ class ReadoutGrid extends StatelessWidget {
         );
     return Column(
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            tile(currentLabel, '${fmtAccel(current)} m/s²', Icons.speed_rounded),
-            const SizedBox(width: UiSpace.md),
-            tile('Peak', '${fmtAccel(peak)} m/s²', Icons.north_rounded, onTap: onPeakTap),
-          ],
+        IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              tile(currentLabel, '${fmtAccel(current)} m/s²', Icons.speed_rounded),
+              const SizedBox(width: UiSpace.md),
+              tile('Peak', '${fmtAccel(peak)} m/s²', Icons.north_rounded, onTap: onPeakTap),
+            ],
+          ),
         ),
         const SizedBox(height: UiSpace.md),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            tile('RMS', '${fmtAccel(rms)} m/s²', Icons.equalizer_rounded),
-            const SizedBox(width: UiSpace.md),
-            tile('Frequency', fmtHz(hz), Icons.waves_rounded),
-          ],
+        IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              tile('RMS', '${fmtAccel(rms)} m/s²', Icons.equalizer_rounded),
+              const SizedBox(width: UiSpace.md),
+              tile('Frequency', fmtHz(hz), Icons.waves_rounded),
+            ],
+          ),
         ),
       ],
     );

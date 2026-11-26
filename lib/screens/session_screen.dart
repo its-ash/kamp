@@ -37,10 +37,14 @@ class _SessionScreenState extends State<SessionScreen> {
   }
 
   Future<void> _share() async {
-    final file = await widget.store.csvFile(_meta.id);
-    await SharePlus.instance.share(
-      ShareParams(files: [XFile(file.path, mimeType: 'text/csv')], subject: 'Kamp: ${_meta.name}'),
-    );
+    try {
+      final file = await widget.store.csvFile(_meta.id);
+      await SharePlus.instance.share(
+        ShareParams(files: [XFile(file.path, mimeType: 'text/csv')], subject: 'Kamp: ${_meta.name}'),
+      );
+    } catch (_) {
+      if (mounted) context.showToast('Could not share the CSV', status: UiStatus.danger);
+    }
   }
 
   Future<void> _rename() async {
@@ -133,7 +137,12 @@ class _SessionScreenState extends State<SessionScreen> {
             ],
           ),
           const SizedBox(height: UiSpace.lg),
-          UiButton('Share CSV', icon: Icons.ios_share_rounded, expand: true, onPressed: _share),
+          UiButton(
+            'Share CSV',
+            icon: Icons.ios_share_rounded,
+            expand: true,
+            onPressed: _failed || samples == null ? null : _share,
+          ),
         ],
       ),
     );

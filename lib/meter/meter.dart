@@ -81,6 +81,8 @@ class VibrationMeter extends ChangeNotifier {
     if (state == MeterState.running || state == MeterState.starting) return;
     state = MeterState.starting;
     _gotSample = false;
+    _lastFft = -1e9;
+    dominantHz = null;
     _clock
       ..reset()
       ..start();
@@ -120,6 +122,10 @@ class VibrationMeter extends ChangeNotifier {
     } else {
       _sub?.cancel();
       _sub = null;
+      _tick?.cancel();
+      _tick = null;
+      _watchdog?.cancel();
+      _watchdog = null;
       state = MeterState.unavailable;
       notifyListeners();
     }
